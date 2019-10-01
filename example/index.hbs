@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+
+  <title>{{htmlWebpackPlugin.options.title}}</title>
+
+  <style>
+    body {
+      padding: 32px;
+      font-family: Arial, sans-serif;
+    }
+
+    #perf {
+      padding: 8px;
+      border-radius: 4px;
+      background-color: black;
+      color: grey;
+    }
+
+    #response {
+      margin-top: 16px;
+      color: grey;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="perf"></div>
+<div id="response"></div>
+
+{{#each htmlWebpackPlugin.files.js}}
+  <script crossorigin src="{{this}}"></script>
+{{/each}}
+</body>
+</html>
