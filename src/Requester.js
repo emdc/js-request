@@ -65,7 +65,6 @@ class Requester {
   }
 
   getRequestParams (config) {
-
     const headers = {...this._headers};
 
     if (this._useAuthorization) {
