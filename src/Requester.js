@@ -38,7 +38,9 @@ class Requester {
     this._timeout = timeout;
     this._checkPerformance = false;
     this._checkPerformanceCallback = () => null;
+
     this._useAuthorization = useAuthorization;
+    this._authHeaderName = 'Authorization';
 
     /* eslint-disable quote-props */
     this._headers = {
@@ -64,6 +66,14 @@ class Requester {
     this._checkPerformanceCallback = cb;
   }
 
+  setHeader (name, value) {
+    this._headers[name] = value;
+  }
+
+  setAuthorizationHeaderName (name) {
+    this._authHeaderName = name;
+  }
+
   getRequestParams (config) {
     const headers = {...this._headers};
 
@@ -71,7 +81,7 @@ class Requester {
       const token = Cookies.get('token');
 
       if (token) {
-        headers.Authorization = `bearer ${token}`;
+        headers[this._authHeaderName] = `${token}`;
       }
     }
 
