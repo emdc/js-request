@@ -105,7 +105,7 @@ class Requester {
     };
   }
 
-  @measurePerformance()
+  @measurePerformance
   async request (url, params) { // eslint-disable-line complexity, class-methods-use-this
     const response = await fetch(url, params);
 
